@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eaves Landscapes | Zionsville, Westfield & Whitestown Landscaping</title>
+<meta name="description" content="Professional landscape design, installation, and lawn care serving Zionsville, Westfield, and Whitestown, Indiana. Free estimates — call 317.449.9584.">
+<meta property="og:title" content="Eaves Landscapes | Zionsville, Westfield & Whitestown">
+<meta property="og:description" content="Landscape design, installation, and lawn care. Free estimates.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eaveslandscapes.com">
+<link rel="canonical" href="https://eaveslandscapes.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2d3f2b;
+    --forest-mid: #3d5239;
+    --moss: #4e6847;
+    --sage: #6d8b64;
+    --sage-light: #93ab8a;
+    --fern: #7fa873;
+    --bark: #5a4a3a;
+    --bark-light: #7d6b56;
+    --warmth: #c4a882;
+    --sand: #e2d5c3;
+    --sand-light: #efe8de;
+    --linen: #f7f3ed;
+    --cream: #fdfbf7;
+    --white: #ffffff;
+    --charcoal: #2a2a26;
+    --text: #3a3a35;
+    --text-light: #6b6b62;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Nunito Sans', 'Segoe UI', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(253,251,247,0);
+    backdrop-filter: blur(0px);
+    transition: all 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  nav.scrolled {
+    background: rgba(253,251,247,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(196,168,130,0.2);
+    box-shadow: 0 1px 20px rgba(0,0,0,0.04);
+  }
+  .nav-inner {
+    max-width: 1240px; margin: 0 auto; padding: 1.25rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-brand {
+    font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
+    color: var(--white); text-decoration: none; transition: color 0.4s;
+  }
+  nav.scrolled .nav-brand { color: var(--forest); }
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: rgba(255,255,255,0.85); font-size: 0.82rem;
+    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s;
+  }
+  nav.scrolled .nav-links a { color: var(--bark); }
+  .nav-links a:hover { color: var(--white); }
+  nav.scrolled .nav-links a:hover { color: var(--moss); }
+  .nav-cta {
+    background: var(--fern) !important; color: var(--white) !important;
+    padding: 0.6rem 1.6rem; border-radius: 3px;
+    letter-spacing: 0.06em !important; transition: background 0.3s, transform 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--forest-mid) !important; transform: translateY(-1px); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+  .nav-toggle span { display: block; width: 26px; height: 2px; background: var(--white); margin: 6px 0; transition: 0.3s; border-radius: 1px; }
+  nav.scrolled .nav-toggle span { background: var(--bark); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative; overflow: hidden;
+    background: linear-gradient(175deg, rgba(45,63,43,0.85) 0%, rgba(61,82,57,0.75) 40%, rgba(78,104,71,0.7) 100%);
+    background-size: cover; background-position: center;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 160px;
+    background: linear-gradient(to top, var(--cream) 0%, transparent 100%); z-index: 1;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 2rem; }
+  .hero-tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--warmth); margin-bottom: 2rem;
+    padding: 0.5rem 1.5rem; border: 1px solid rgba(196,168,130,0.4); border-radius: 2px;
+    opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+  .hero h1 {
+    font-family: var(--font-display); font-size: clamp(3rem,7vw,5rem); font-weight: 500;
+    color: var(--white); line-height: 1.1; margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+  .hero h1 em { font-style: italic; font-weight: 400; color: var(--sage-light); }
+  .hero-sub {
+    font-size: 1.15rem; font-weight: 300; color: rgba(255,255,255,0.75);
+    max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7;
+    opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2.2rem;
+    font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+    border-radius: 3px; transition: all 0.3s ease; cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--warmth); color: var(--forest); }
+  .btn-primary:hover { background: var(--white); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+  .btn-ghost { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.35); }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.06); }
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease 1.2s forwards;
+  }
+  .scroll-hint span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+
+  /* SECTIONS */
+  section { padding: 7rem 2.5rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+  .section-heading { font-family: var(--font-display); font-size: clamp(2.2rem,4.5vw,3.2rem); font-weight: 500; color: var(--forest); line-height: 1.15; margin-bottom: 1rem; }
+  .section-intro { font-size: 1.1rem; font-weight: 300; color: var(--text-light); max-width: 580px; line-height: 1.8; margin-bottom: 3.5rem; }
+
+  /* PROMISE BAR */
+  .promise-bar { background: var(--forest); padding: 4rem 2.5rem; text-align: center; }
+  .promise-bar .section-inner { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+  .promise-item { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; max-width: 220px; }
+  .promise-icon { width: 48px; height: 48px; border-radius: 50%; background: rgba(127,168,115,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+  .promise-item h4 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--white); }
+  .promise-item p { font-size: 0.85rem; color: var(--sage-light); line-height: 1.6; font-weight: 300; }
+
+  /* SERVICES */
+  .services { background: var(--cream); }
+  .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid var(--sand); border-radius: 6px; overflow: hidden; }
+  .service-card { padding: 3rem 2.5rem; background: var(--white); border-right: 1px solid var(--sand); position: relative; transition: all 0.35s ease; }
+  .service-card:last-child { border-right: none; }
+  .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--fern); transform: scaleX(0); transform-origin: center; transition: transform 0.4s ease; }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-card:hover { background: var(--linen); }
+  .service-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--sand); line-height: 1; margin-bottom: 1.5rem; }
+  .service-card h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--forest); margin-bottom: 1rem; }
+  .service-card p { font-size: 0.95rem; color: var(--text-light); line-height: 1.75; }
+
+  /* GALLERY */
+  .gallery { background: var(--linen); }
+  .ba-pairs { display: flex; flex-direction: column; gap: 3rem; }
+  .project-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--forest); padding-bottom: 0.75rem; border-bottom: 1px solid var(--sand); margin-bottom: -0.5rem; }
+  .ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+  .ba-pair-label { font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .ba-pair-label.before { color: var(--bark-light); }
+  .ba-pair-label.after { color: var(--fern); }
+  .ba-img { aspect-ratio: 4/3; border-radius: 6px; overflow: hidden; position: relative; cursor: pointer; }
+  .ba-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .ba-img:hover img { transform: scale(1.04); }
+  .gallery-item { aspect-ratio: 4/3; border-radius: 4px; overflow: hidden; position: relative; cursor: pointer; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(45,63,43,0.3) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; }
+  .gallery-item:hover::after { opacity: 1; }
+  .gallery-placeholder { aspect-ratio: 4/3; border-radius: 4px; background: linear-gradient(135deg, var(--sage) 0%, var(--moss) 100%); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-family: var(--font-display); font-size: 0.95rem; font-style: italic; }
+  .gallery-cta { text-align: center; margin-top: 3rem; }
+  .btn-secondary { background: var(--forest); color: var(--white); padding: 1rem 2.5rem; }
+  .btn-secondary:hover { background: var(--forest-mid); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(45,63,43,0.2); }
+
+  /* ABOUT */
+  .about { background: var(--cream); }
+  .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-photo { aspect-ratio: 3/4; border-radius: 6px; overflow: hidden; position: relative; background: linear-gradient(160deg, var(--sage) 0%, var(--forest-mid) 100%); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-family: var(--font-display); font-style: italic; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .about-content .section-heading { max-width: 400px; }
+  .about-content p { font-size: 1.05rem; color: var(--text); line-height: 1.85; margin-bottom: 1.25rem; }
+  .about-sig { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--sand); }
+  .about-sig strong { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--forest); }
+  .about-sig span { font-size: 0.85rem; color: var(--text-light); }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--forest); position: relative; overflow: hidden; }
+  .testimonials::before { content: ''; position: absolute; top: 0; right: 0; width: 400px; height: 400px; border-radius: 50%; background: rgba(127,168,115,0.06); transform: translate(30%,-30%); }
+  .testimonials .section-label { color: var(--sage-light); }
+  .testimonials .section-heading { color: var(--white); }
+  .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; position: relative; z-index: 1; }
+  .testimonial-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 2.5rem; }
+  .testimonial-card .quote-mark { font-family: var(--font-display); font-size: 3.5rem; color: var(--sage); line-height: 1; margin-bottom: 0.5rem; }
+  .testimonial-card blockquote { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 1.5rem; }
+  .testimonial-card cite { font-style: normal; font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--warmth); letter-spacing: 0.04em; }
+
+  /* AREA */
+  .area { background: var(--linen); }
+  .area-tags { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .area-tag { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2rem; background: var(--white); border: 1px solid var(--sand); border-radius: 50px; font-size: 1rem; font-weight: 600; color: var(--forest); transition: all 0.25s; }
+  .area-tag:hover { background: var(--forest); color: var(--white); border-color: var(--forest); }
+  .area-tag svg { width: 18px; height: 18px; fill: currentColor; opacity: 0.6; }
+
+  /* CTA */
+  .cta { background: linear-gradient(170deg, var(--forest) 0%, var(--moss) 100%); text-align: center; padding: 8rem 2.5rem; position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 120%, rgba(196,168,130,0.1) 0%, transparent 60%); }
+  .cta .section-inner { position: relative; z-index: 1; }
+  .cta h2 { font-family: var(--font-display); font-size: clamp(2.4rem,5vw,3.5rem); font-weight: 500; color: var(--white); margin-bottom: 1rem; }
+  .cta h2 em { font-style: italic; font-weight: 400; color: var(--warmth); }
+  .cta p { font-size: 1.1rem; color: var(--sage-light); max-width: 480px; margin: 0 auto 3rem; font-weight: 300; line-height: 1.7; }
+  .cta-phone { display: flex; align-items: center; justify-content: center; gap: 0.75rem; font-family: var(--font-display); font-size: clamp(1.8rem,3.5vw,2.6rem); font-weight: 600; color: var(--white); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.2s; }
+  .cta-phone:hover { color: var(--warmth); }
+  .cta-phone svg { width: 28px; height: 28px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .cta-divider { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 1.5rem 0; color: rgba(255,255,255,0.3); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .cta-divider::before, .cta-divider::after { content: ''; width: 40px; height: 1px; background: rgba(255,255,255,0.2); }
+  .btn-warmth { background: var(--warmth); color: var(--forest); font-size: 0.9rem; padding: 1.1rem 2.8rem; }
+  .btn-warmth:hover { background: var(--white); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+  /* FOOTER */
+  footer { background: var(--charcoal); padding: 3.5rem 2.5rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+  .footer-brand { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--sand); margin-bottom: 0.5rem; }
+  .footer-tagline { font-size: 0.82rem; color: rgba(196,168,130,0.5); font-weight: 300; }
+  .footer-right { text-align: right; }
+  .footer-right a { display: block; color: var(--sage-light); text-decoration: none; font-size: 0.9rem; margin-bottom: 0.3rem; transition: color 0.2s; }
+  .footer-right a:hover { color: var(--warmth); }
+  .footer-copy { width: 100%; text-align: center; padding-top: 2.5rem; margin-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; cursor: zoom-out; }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  .lightbox-close { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; opacity: 0.6; transition: opacity 0.2s; }
+  .lightbox-close:hover { opacity: 1; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%,100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; border-bottom: 1px solid var(--sand); }
+    .service-card:last-child { border-bottom: none; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .about-photo { aspect-ratio: 4/3; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 1.5rem 2.5rem 2rem; border-bottom: 1px solid var(--sand); gap: 1.2rem; }
+    .nav-links.open a { color: var(--bark) !important; }
+    .nav-links.open .nav-cta { color: var(--white) !important; }
+    .nav-toggle { display: block; }
+    .hero { min-height: 90vh; }
+    section { padding: 5rem 1.5rem; }
+    .promise-bar .section-inner { gap: 2.5rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .ba-pair { grid-template-columns: 1fr; gap: 1rem; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-right { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Eaves Landscapes</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Free Estimate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Zionsville &bull; Westfield &bull; Whitestown</div>
+    <h1>Landscapes designed with <em>purpose</em></h1>
+    <p class="hero-sub">Thoughtful design, quality installation, and reliable lawn care for homeowners who expect more from their outdoor space.</p>
+    <div class="hero-actions">
+      <a href="tel:+13174499584" class="btn btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        317.449.9584
+      </a>
+      <a href="#gallery" class="btn btn-ghost">View Our Work</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<section class="promise-bar">
+  <div class="section-inner">
+    <div class="promise-item reveal"><div class="promise-icon">🌿</div><h4>Quality Materials</h4><p>We never cut corners on materials. Your investment should last.</p></div>
+    <div class="promise-item reveal"><div class="promise-icon">🤝</div><h4>Honest Estimates</h4><p>Every estimate is free. No surprises, no hidden charges.</p></div>
+    <div class="promise-item reveal"><div class="promise-icon">📐</div><h4>Owner on Every Job</h4><p>Small crew, personal attention. The owner is always on-site.</p></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-label reveal">What We Do</div>
+    <h2 class="section-heading reveal">Our Services</h2>
+    <p class="section-intro reveal">From concept to completion — and the ongoing care that keeps it all looking its best.</p>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="service-num">01</div><h3>Landscape Design</h3><p>Custom plans built around your property, your style, and Indiana's seasons. We design outdoor spaces that work year-round and make sense for how you actually use your yard.</p></div>
+      <div class="service-card reveal"><div class="service-num">02</div><h3>Installation</h3><p>Plantings, beds, grading, drainage, mulch, fencing, and more. We handle the hard work so your design becomes reality — built right, built to last.</p></div>
+      <div class="service-card reveal"><div class="service-num">03</div><h3>Lawn Care</h3><p>Weekly mowing, edging, trimming, and seasonal clean-ups. Consistent, reliable service so your lawn stays sharp without you thinking about it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="section-inner">
+    <div class="section-label reveal">Our Work</div>
+    <h2 class="section-heading reveal">Recent Projects</h2>
+    <p class="section-intro reveal">A look at some of the properties we've had the privilege to work on.</p>
+    <div class="ba-pairs">
+      <h3 class="project-title reveal">Backyard Renovation — Zionsville</h3>
+      <div class="ba-pair reveal">
+        <div>
+          <div class="ba-pair-label before">Before</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/before-2.jpg" alt="Backyard before — bare dirt, sparse grass, no defined beds" loading="lazy"></div>
+        </div>
+        <div>
+          <div class="ba-pair-label after">After</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/after-3.jpg" alt="Backyard after — fresh sod, paver edging, river rock borders" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="ba-pair reveal">
+        <div>
+          <div class="ba-pair-label before">Before</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/before-3.jpg" alt="Side yard before — overgrown beds, tangled hoses" loading="lazy"></div>
+        </div>
+        <div>
+          <div class="ba-pair-label after">After</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/after-1.jpg" alt="Side yard after — clean paver border, rock bed, new plantings" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="ba-pair reveal">
+        <div>
+          <div class="ba-pair-label before">Before</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/before-1.jpg" alt="Yard corner before — bare soil, no edging" loading="lazy"></div>
+        </div>
+        <div>
+          <div class="ba-pair-label after">After</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/after-2.jpg" alt="Yard after — lush grass, clean gravel borders, defined beds" loading="lazy"></div>
+        </div>
+      </div>
+
+      <h3 class="project-title reveal" style="margin-top: 3rem;">Fence Installation — Whitestown</h3>
+      <div class="ba-pair reveal">
+        <div>
+          <div class="ba-pair-label before">Before</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/fence-before-1.jpg" alt="Fence framework being set — posts and rails in place" loading="lazy"></div>
+        </div>
+        <div>
+          <div class="ba-pair-label after">After</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/fence-after-1.jpg" alt="Finished picket fence from sidewalk — clean lines, full enclosure" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="ba-pair reveal">
+        <div>
+          <div class="ba-pair-label before">Before</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/fence-before-2.jpg" alt="Fence rails along sidewalk before pickets installed" loading="lazy"></div>
+        </div>
+        <div>
+          <div class="ba-pair-label after">After</div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/fence-after-2.jpg" alt="Completed fence with arborvitae, mulch beds, and stone accents" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="ba-pair reveal">
+        <div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/fence-after-3.jpg" alt="Full fence line with pergola and landscaping visible" loading="lazy"></div>
+        </div>
+        <div>
+          <div class="ba-img" onclick="openLightbox(this)"><img src="images/fence-after-4.jpg" alt="Close-up of finished picket fence with pergola and plantings beyond" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-cta reveal"><a href="#contact" class="btn btn-secondary">Get a Free Estimate</a></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-layout">
+      <div class="about-photo reveal">
+        <!-- REPLACE: <img src="images/daniel.jpg" alt="Daniel Eaves, owner of Eaves Landscapes"> -->
+        Your photo here
+      </div>
+      <div class="about-content">
+        <div class="section-label reveal">About</div>
+        <h2 class="section-heading reveal">Small crew. High standards.</h2>
+        <p class="reveal">Eaves Landscapes is a locally owned and operated landscaping company serving Zionsville, Westfield, and Whitestown. We keep our crew small on purpose — it means every property gets personal attention and the owner is on-site for every project.</p>
+        <p class="reveal">We believe your outdoor space should reflect the same care you put into your home. That means quality materials, honest communication, and work we're proud to stand behind. No cutting corners, no surprise invoices, no disappearing contractors.</p>
+        <p class="reveal">Whether you need a full landscape redesign or dependable weekly mowing, we treat your property like it's our own.</p>
+        <div class="about-sig reveal"><strong>Daniel Eaves</strong><span>Owner, Eaves Landscapes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-inner">
+    <div class="section-label reveal">Testimonials</div>
+    <h2 class="section-heading reveal">What Our Clients Say</h2>
+    <div style="margin-bottom: 3rem;"></div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal"><div class="quote-mark">&ldquo;</div><blockquote>Add your first customer testimonial here. A few sentences about the quality of your work and professionalism.</blockquote><cite>— Client Name, Zionsville</cite></div>
+      <div class="testimonial-card reveal"><div class="quote-mark">&ldquo;</div><blockquote>Add your second customer testimonial here. Highlight reliability, design quality, or how easy you are to work with.</blockquote><cite>— Client Name, Westfield</cite></div>
+    </div>
+  </div>
+</section>
+
+<section class="area">
+  <div class="section-inner">
+    <div class="section-label reveal">Service Area</div>
+    <h2 class="section-heading reveal">Where We Work</h2>
+    <p class="section-intro reveal">Proudly serving communities northwest of Indianapolis.</p>
+    <div class="area-tags reveal">
+      <div class="area-tag"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Zionsville</div>
+      <div class="area-tag"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Westfield</div>
+      <div class="area-tag"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Whitestown</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="section-inner">
+    <h2 class="reveal">Let's build something <em>beautiful</em></h2>
+    <p class="reveal">Free estimates, honest advice, and no pressure. Give us a call or send an email — we'd love to hear about your project.</p>
+    <a href="tel:+13174499584" class="cta-phone reveal">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      317.449.9584
+    </a>
+    <div class="cta-divider reveal">or</div>
+    <a href="/cdn-cgi/l/email-protection#40232f2e342123340025213625332c212e243323213025336e232f2d7f3335222a2523347d06322525657270053334292d21342565727012253135253334" class="btn btn-warmth reveal">Request an Estimate</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left"><div class="footer-brand">Eaves Landscapes</div><div class="footer-tagline">Zionsville, Westfield & Whitestown, IN</div></div>
+    <div class="footer-right"><a href="tel:+13174499584">317.449.9584</a><a href="/cdn-cgi/l/email-protection#9bf8f4f5effaf8efdbfefaedfee8f7faf5ffe8f8faebfee8b5f8f4f6"><span class="__cf_email__" data-cfemail="43202c2d372220370326223526302f222d273020223326306d202c2e">[email&#160;protected]</span></a></div>
+  </div>
+  <div class="footer-inner"><div class="footer-copy">&copy; 2026 Eaves Landscapes. All rights reserved.</div></div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  window.addEventListener('scroll', () => { document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80); });
+  const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 60); } }); }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { document.querySelector('.nav-links').classList.remove('open'); }); });
+  function openLightbox(el) { const img = el.querySelector('img'); if (!img) return; document.getElementById('lightbox-img').src = img.src; document.g
